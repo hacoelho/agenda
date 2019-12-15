@@ -16,22 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.agenda.error.CustomErrorType;
 import br.com.agenda.model.Cliente;
-import br.com.agenda.model.Email;
 import br.com.agenda.repository.ClienteRepository;
-import br.com.agenda.repository.EmailRepository;
 
 @RestController
 @RequestMapping("clientes")
 public class ClienteController
 {
 	private final ClienteRepository clienteDAO;
-	private final EmailRepository   emailDAO;
+
 	
     @Autowired
-	public ClienteController(ClienteRepository clienteDAO , EmailRepository emailDAO)
+	public ClienteController(ClienteRepository clienteDAO)
 	{
 		this.clienteDAO = clienteDAO;
-		this.emailDAO   = emailDAO;
 	}
 	
     @GetMapping
@@ -56,16 +53,9 @@ public class ClienteController
     }
     
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Cliente cliente , Iterable<Email> emails)
+    public ResponseEntity<?> save(@RequestBody Cliente cliente)
     {
-    	clienteDAO.save(cliente);
-    	for (Email email : emails)
-    	{
-			email.setCliente(cliente);
-			emailDAO.save(email);
-		}
-    	
-    	return new ResponseEntity<>(HttpStatus.OK);
+    	return new ResponseEntity<>(clienteDAO.save(cliente) , HttpStatus.OK);
     }
     
     @DeleteMapping(path = "/{id}")

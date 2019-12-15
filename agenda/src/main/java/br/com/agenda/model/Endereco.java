@@ -6,6 +6,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Endereco extends AbstractEntity 
 {
+	
+	private static final long serialVersionUID = 1L;
+	
 	private String cep;
 	private String logradouro;
 	private String bairro;

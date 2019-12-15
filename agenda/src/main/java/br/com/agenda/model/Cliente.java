@@ -1,9 +1,6 @@
 package br.com.agenda.model;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -11,7 +8,6 @@ import org.hibernate.validator.constraints.br.CPF;
 public class Cliente extends AbstractEntity
 {
 	private static final long serialVersionUID = 1L;
-	
 	
 	private String nome;
 	@CPF

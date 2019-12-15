@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 @Entity
 public class AgendaUser extends AbstractEntity
 {
+	private static final long serialVersionUID = 1L;
+	
 	private String username;
 	private String password;
 	

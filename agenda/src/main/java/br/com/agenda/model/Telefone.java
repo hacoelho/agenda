@@ -6,6 +6,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Telefone extends AbstractEntity
 {
+	
+	private static final long serialVersionUID = 1L;
+
 	private String telefone;
 	
 	@ManyToOne

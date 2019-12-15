@@ -11,6 +11,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Email extends AbstractEntity
 {
 	
+	private static final long serialVersionUID = 1L;
+
 	private boolean principal;
 	
 	@ManyToOne
