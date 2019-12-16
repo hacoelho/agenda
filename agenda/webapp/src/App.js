@@ -9,6 +9,7 @@ import Home from './components/Home'
 import Footer from './components/Footer'
 import AddCliente from './components/AddCliente';
 import ListaCliente from './components/ListaCliente';
+import VisualizarCliente from './components/VisualizarCliente';
 import Teste from './components/Teste'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
               <Route path="/" exact component={Home}/>
               <Route path="/add" exact component={AddCliente}/>
               <Route path="/list" exact component={ListaCliente}/>
+              <Route path="/visualizar" exact component={VisualizarCliente}/>
               <Route path="/teste" exact component={Teste}/>
             </Switch>
 
