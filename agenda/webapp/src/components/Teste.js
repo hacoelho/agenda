@@ -1,5 +1,9 @@
 import React from 'react';
 
+import ViaCep from 'react-via-cep';
+
+import {Form, Button} from 'react-bootstrap'
+
 
 class Teste extends React.Component {
 
@@ -52,11 +56,31 @@ class Teste extends React.Component {
     }
 
 
+
+
+    
+
+
+
+
+
+
+
+
+
     render() {
         return (
             <div>
                 <h1 className="text-white">Adicionar Cliente</h1>
                 <Form onSubmit={this.handleSubmit}>
+
+
+                    
+
+
+
+
+
                     
                     <Form.Group controlId="formGroupNome">
                         <Form.Label className="text-white">Nome</Form.Label>
@@ -81,7 +105,33 @@ class Teste extends React.Component {
                     </Form.Group>
 
                     <Form.Group controlId="formGroupCEP">
-                        <Form.Label className="text-white">CEP</Form.Label>
+                    <Form.Label className="text-white">CEP</Form.Label>
+                    <ViaCep cep={this.state.cep} lazy>
+                        {({ data, loading, error, fetch }) => {
+                            if (loading) {
+                                return <p className="text-white">loading...</p>
+                            }
+                            if (error) {
+                                return <p className="text-white">error</p>
+                            }
+                            if (data) {
+                                return <div>
+                                    <p className="text-white">
+                                        CEP: {data.cep} <br />
+                                        CIDADE: {data.localidade} <br />
+                                        UF: {data.uf} <br />
+                                    </p>
+                                </div>
+                            }
+                            return <div>
+                                <input onChange={this.handleChange} value={this.state.cep} placeholder="CEP" type="text" />
+                                <button onClick={fetch}>Pesquisar</button>
+                            </div>
+                        }}
+                    </ViaCep>
+
+
+                        
                         <Form.Control type="cep" name="cep" id="cep" onChange={this.handleChange} placeholder="Insira o CEP do cliente" />
                     </Form.Group>
                     <Form.Group controlId="formGroupLogradouro">
