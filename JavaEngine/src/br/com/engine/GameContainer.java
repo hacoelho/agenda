@@ -1,5 +1,3 @@
-//https://www.youtube.com/watch?v=bNq1UxL2cmE&list=PL7dwpoQd3a8j6C9p5LqHzYFSkii6iWPZF&index=4
-
 package br.com.engine;
 
 public class GameContainer implements Runnable 
